@@ -1,12 +1,16 @@
 source 'https://rubygems.org'
 
-ruby '3.4.4'
+# ใช้ให้ตรงกับ Ruby ที่เครื่องฝ้าย (ตอนนี้ 3.2.4)
+ruby '3.2.4'
 
 ##-- base gems for rails --##
 gem 'rack-cors', '2.0.0', require: 'rack/cors'
 gem 'rails', '~> 7.1'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', require: false
+
+# 🔧 กันปัญหา rack 3.x ที่ชนกับ omniauth/ของเดิมบางตัว
+gem 'rack', '~> 2.2', '>= 2.2.7'
 
 ##-- rails application helper gems --##
 gem 'acts-as-taggable-on'
@@ -173,7 +177,7 @@ gem 'omniauth-oauth2'
 gem 'audited', '~> 5.4', '>= 5.4.1'
 
 # need for google auth
-gem 'omniauth', '>= 2.1.2'
+gem 'omniauth', '~> 2.1.3'
 gem 'omniauth-saml'
 gem 'omniauth-google-oauth2', '>= 1.1.3'
 gem 'omniauth-rails_csrf_protection', '~> 1.0', '>= 1.0.2'
